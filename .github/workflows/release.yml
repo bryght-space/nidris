@@ -1,0 +1,20 @@
+name: Publish
+
+on:
+  push:
+
+jobs:
+
+  publish-github:
+    name: Publish to release branch
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Run release
+      run: |
+        git config --local user.email "${{ github.event.pusher.email }}"
+        git config --local user.name "${{ github.event.pusher.name }}"
+        "sh/genRelease.sh"
+      shell: bash
