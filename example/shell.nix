@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  nidris = import (fetchTarball "https://github.com/bryght-space/nidris/archive/b81518400dc44c599e129b390c22dc7576571f41.tar.gz");
+  nidris = import (fetchTarball "https://github.com/bryght-space/nidris/archive/6d1a87b32ef5005c0e05bf028fd098bd20bca285.tar.gz");
   idris = nidris ./.;
 in
   pkgs.mkShell {
