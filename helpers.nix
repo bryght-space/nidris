@@ -27,7 +27,7 @@ let
   trim = str: charactersToString (ctrim (stringToCharacters str));
   over = ch: (import ch) { overlays = [ ]; };
   channelFromRevision = revision : over (fetchTarball "https://github.com/NixOS/nixpkgs/archive/${revision}.tar.gz");
-  idris2PackagesChannelFromRevision = revision : over (fetchTarball "https://github.com/claymager/idris2-pkgs/archive/${revision}.tar.gz");
+  idris2PackagesChannelFromRevision = revision : import (fetchTarball "https://github.com/claymager/idris2-pkgs/archive/${revision}.tar.gz");
 in {
   inherit
     trim
