@@ -14,4 +14,7 @@ let
       f        = n: getByRevision revision n;
     in
       builtins.map f items;
-in path : getByVersion (trim (builtins.readFile (toString "${toString path}/.idrisversion")))
+      idris = version : getByVersion version;
+      idris2PackagesChannel = idris2PackagesChannelFromRevision 5794a5150e6640352b7e63967a2fc6a56fb12d93;
+      inigo = idris2PackagesChannel.inigo;
+in version : [ (idris version) inigo ]

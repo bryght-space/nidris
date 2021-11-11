@@ -51,7 +51,7 @@ echo "{ pkgs ? import <nixpkgs> {} }:
 
 let
   nidris = import (fetchTarball \"https://github.com/bryght-space/nidris/archive/${version}.tar.gz\");
-  idris = nidris ./.;
+  idris = nidris \"0.5.1\";
 in
   pkgs.mkShell {
     buildInputs = [
